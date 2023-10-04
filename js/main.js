@@ -43,8 +43,26 @@
 
 // CLASE 3 
 // tabla de multiplicar
-let numero = Number (prompt ("Ingrese un numero"))
-for (let i = 1 ; i <=10; i++){
-    let resultado = numero * i;
-    alert (`${resultado}`)
-}
+// let numero = Number (prompt ("Ingrese un numero"))
+// for (let i = 1 ; i <=10; i++){
+//     let resultado = numero * i;
+//     alert (`${resultado}`)
+// }
+
+
+// clase 4
+// Calculadora de IVA y descuento
+const suma = (x, y) => x + y;
+const resta = (x, y) => x - y;
+const iva = (precio) => precio * 0.21;
+
+let precioProducto = Number(prompt("Ingrese el precio del producto"));
+let descuento = Number(prompt("Ingrese el descuento a aplicar"));
+
+// precioProducto + iva - descuento
+let nuevoPrecio = resta(suma(precioProducto, iva(precioProducto)), descuento);
+// = resta(suma(1000, iva(1000)), 100);
+// = resta(suma(1000, 210), 100);
+// = resta(1210, 100);
+// = 1110
+alert(nuevoPrecio);
