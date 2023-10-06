@@ -52,17 +52,39 @@
 
 // clase 4
 // Calculadora de IVA y descuento
-const suma = (x, y) => x + y;
-const resta = (x, y) => x - y;
-const iva = (precio) => precio * 0.21;
+// const suma = (x, y) => x + y;
+// const resta = (x, y) => x - y;
+// const iva = (precio) => precio * 0.21;
 
-let precioProducto = Number(prompt("Ingrese el precio del producto"));
-let descuento = Number(prompt("Ingrese el descuento a aplicar"));
+// let precioProducto = Number(prompt("Ingrese el precio del producto"));
+// let descuento = Number(prompt("Ingrese el descuento a aplicar"));
 
 // precioProducto + iva - descuento
-let nuevoPrecio = resta(suma(precioProducto, iva(precioProducto)), descuento);
+// let nuevoPrecio = resta(suma(precioProducto, iva(precioProducto)), descuento);
 // = resta(suma(1000, iva(1000)), 100);
 // = resta(suma(1000, 210), 100);
 // = resta(1210, 100);
 // = 1110
-alert(nuevoPrecio);
+// alert(nuevoPrecio);
+
+// clase 5 
+// Funciones constructoras y metodos 
+class Producto {
+    constructor(nombre, precio, imagen, cantidad) {
+      this.nombre = nombre;
+      this.precio = precio;
+      this.imagen = imagen;
+      this.cantidad = cantidad;
+    }
+  
+    vender() {
+      this.cantidad -= 1; // this.cantidad = this.cantidad - 1
+      if (this.cantidad <= 0 ) {
+        console.log ( "Sin disponibilidad");
+      } else {
+        this.cantidad -= 1;
+      }
+
+    }
+  }
+
