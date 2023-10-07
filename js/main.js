@@ -1,90 +1,78 @@
-// CLASE 1
 
-// let nombre = prompt ("Ingrese  Su Nombre");
+alert("Bienvenido a Hudson Custom Garage, somos una marca de ropa para los apasionados por el mundo motor")
+alert("A continuacion le proporcionamos el catalogo de remeras que ofrecemos: Remera Camel, Remera Calavera y Remera Aguila")
+alert(`Precio: 6000$ c/u`)
+let remeraElegida = Number(prompt("Porfavor, a continuacion seleccione el NUMERO de la remera que desee:                 1-CAMEL   2-CALAVERA    3-AGUILA"))
 
-// alert ("Hola" + " " + nombre + " " + "Buenas noches!");
+while ((remeraElegida < 1 || remeraElegida > 3) || isNaN (remeraElegida)) {
+  remeraElegida = Number(prompt("Porfavor, a continuacion seleccione el NUMERO de la remera que desee:                 1-CAMEL   2-CALAVERA    3-AGUILA"));
+}
+switch (remeraElegida) {
+  case 1:
+    alert(`Usted a elegido la remera CAMEL`);
+    break;
 
-// let edad = Number(prompt( "Cuantos años tienes?"))
+  case 2:
+    alert(`Usted a elegido la remera CALAVERA`);
+    break;
 
-// alert (edad * 365 + " " + "es tu edad en dias!");
+  case 3:
+    alert(`Usted a elegido la remera AGUILA`);
+    break;
 
-// let edadEnDias = edad * 365;
+  default:
+    alert("Debes ingresar un valor entre 1 y 3");
+    break;
+}
 
-//  let mesDeNacimiento = prompt ("En que mes naciste?")
+let metodoPago = Number(prompt("Seleccione el numero correspondiente al metodo de pago que quiera efectuar: 1-Tarjeta de Credito   2-Efectivo   3-Transferencia Bancaria"))
 
-//  let ocupacion = prompt ("Cual es tu ocupacion actual?")
+while ((metodoPago < 1 || metodoPago > 3) || isNaN(metodoPago)) {
+  metodoPago = Number(prompt("Seleccione el numero correspondiente al metodo de pago que quiera efectuar: 1-Tarjeta de Credito   2-Efectivo   3-Transferencia Bancaria"));
+}
 
-//  alert ("Tu nombre es" + " " + nombre + ", tienes" + " " + edadEnDias + " " + "dias o" + " " + edad + " " + "años." + " " + "Naciste en el mes de" + " " + mesDeNacimiento + " " + "y actualmente tu ocupacion actual es:" + " " + ocupacion)
+switch (metodoPago) {
+  case 1:
+    alert("Haz seleccionado Tarjeta de Credito");
 
-// alert ("Gracias" + " " + nombre + " " + "por tu cooperacion!")
+    let cuotas = Number(prompt("Seleccione cantidad de cuotas: 1, 3, 6, 12"));
 
-// CLASE 2
-
-// alert ( "Licencia de Conducir");
-// let nombre = prompt ( "Ingrese su nombre").toLowerCase();
-
-// let edad = Number (prompt ("Ingrese su edad"));
-
-// if ((nombre !="") && (edad !="")) {
-//     alert("Nombre: "+nombre +"Apellido: "+edad);
-// } else{
-//     alert ("Error: campos requeridos")
-// }
-
-// if (edad <17) {
-//     alert (`Lo siento ${nombre}, pero debes esperar a los 17 o mas para manejar`);
-// }
-// else if (edad == 17) {
-//     alert (`${nombre}, puedes sacar el carnet, pero solo si tus padres aceptan emanciparte `);
-// }
-// else {
-//     alert (`${nombre}, puedes sacar tu carnet de conducir libremente`);
-// }
-
-// CLASE 3 
-// tabla de multiplicar
-// let numero = Number (prompt ("Ingrese un numero"))
-// for (let i = 1 ; i <=10; i++){
-//     let resultado = numero * i;
-//     alert (`${resultado}`)
-// }
-
-
-// clase 4
-// Calculadora de IVA y descuento
-// const suma = (x, y) => x + y;
-// const resta = (x, y) => x - y;
-// const iva = (precio) => precio * 0.21;
-
-// let precioProducto = Number(prompt("Ingrese el precio del producto"));
-// let descuento = Number(prompt("Ingrese el descuento a aplicar"));
-
-// precioProducto + iva - descuento
-// let nuevoPrecio = resta(suma(precioProducto, iva(precioProducto)), descuento);
-// = resta(suma(1000, iva(1000)), 100);
-// = resta(suma(1000, 210), 100);
-// = resta(1210, 100);
-// = 1110
-// alert(nuevoPrecio);
-
-// clase 5 
-// Funciones constructoras y metodos 
-class Producto {
-    constructor(nombre, precio, imagen, cantidad) {
-      this.nombre = nombre;
-      this.precio = precio;
-      this.imagen = imagen;
-      this.cantidad = cantidad;
+    while (cuotas !== 1 && cuotas !== 3 && cuotas !== 6 && cuotas !== 12 || isNaN (cuotas)) {
+      cuotas = Number(prompt("Seleccione cantidad de cuotas: 1, 3, 6, 12"));
     }
-  
-    vender() {
-      this.cantidad -= 1; // this.cantidad = this.cantidad - 1
-      if (this.cantidad <= 0 ) {
-        console.log ( "Sin disponibilidad");
-      } else {
-        this.cantidad -= 1;
-      }
-
+    switch (cuotas) {
+      case 1:
+        alert(`Monto final es de 6000$`);
+        break;
+      case 3:
+        recargo(0.10, 0.20, 0.30)
+        alert(` Monton final es de ${resultadoRecargo3}$`);
+        break;
+      case 6:
+        recargo(0.10, 0.20, 0.30);
+        alert(` Monton final es de ${resultadoRecargo6}$`);
+        break;
+      case 12:
+        recargo(0.10, 0.20, 0.30);
+        alert(` Monton final es de ${resultadoRecargo12}$`);
+        break;
+      default:
+        alert(`Cantidad de cuotas no valida`);
+        break;
     }
-  }
+    break;
+  case 2:
+    alert(`Haz seleccionado Efectivo, por lo que tienes un 15% de descuento!`);
+    alert(`Monton final es de ${6000 - 6000*.15}$`);
+    break;
+  case 3:
+    alert(`Haz seleccionado Transferencia Bancaria, tienes 10% de descuento!`);
+    alert(`Monton final es de ${6000 - 6000*.10 }$`);
+    break;
+}
 
+function recargo(recargo3, recargo6, recargo12) {
+  resultadoRecargo3 = recargo3 * 6000 + 6000
+  resultadoRecargo6 = recargo6 * 6000 + 6000
+  resultadoRecargo12 = recargo12 * 6000 + 6000
+}
