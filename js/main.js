@@ -1,265 +1,148 @@
+// Idea para entrega 2 JS: 
+// vender: 10 remeras y 5 buzos. 
+// Crear perfil para iniciar sesion 
+// Buscador de productos 
+// FIltrador de productos: 1ro por categoria (buzos y remeras), 2ndo por precio. 
+// Agregar al carrito 
+// Funcion para eliminar un producto del carrito
+// Elegir metodo de pago: transferencia= descuento, tarjeta= recargo
+// Calculador de costo de envio segun provincia 
+// Funcion para sumar el total de los productos en el carrito teniendo en cuenta envio y metodo de pago
+// Generar factura por la compra
 
-// alert("Bienvenido a Hudson Custom Garage, somos una marca de ropa para los apasionados por el mundo motor")
-// alert("A continuacion le proporcionamos el catalogo de remeras que ofrecemos: Remera Camel, Remera Calavera y Remera Aguila")
-// alert(`Precio: 6000$ c/u`)
-// let remeraElegida = Number(prompt("Porfavor, a continuacion seleccione el NUMERO de la remera que desee:                 1-CAMEL   2-CALAVERA    3-AGUILA"))
+// while (true) {
+//     const eleccion = prompt("Elija un producto por su ID:\n" +
+//         productos.map(producto => `ID: ${producto.id}, Nombre: ${producto.nombre}, Precio: $${producto.precio}`).join("\n") + "\n" +
+//         "Ingrese 'terminar' para finalizar la compra");
 
-// while ((remeraElegida < 1 || remeraElegida > 3) || isNaN (remeraElegida)) {
-//   remeraElegida = Number(prompt("Porfavor, a continuacion seleccione el NUMERO de la remera que desee:                 1-CAMEL   2-CALAVERA    3-AGUILA"));
-// }
-// switch (remeraElegida) {
-//   case 1:
-//     alert(`Usted a elegido la remera CAMEL`);
-//     break;
-
-//   case 2:
-//     alert(`Usted a elegido la remera CALAVERA`);
-//     break;
-
-//   case 3:
-//     alert(`Usted a elegido la remera AGUILA`);
-//     break;
-
-//   default:
-//     alert("Debes ingresar un valor entre 1 y 3");
-//     break;
-// }
-
-// let metodoPago = Number(prompt("Seleccione el numero correspondiente al metodo de pago que quiera efectuar: 1-Tarjeta de Credito   2-Efectivo   3-Transferencia Bancaria"))
-
-// while ((metodoPago < 1 || metodoPago > 3) || isNaN(metodoPago)) {
-//   metodoPago = Number(prompt("Seleccione el numero correspondiente al metodo de pago que quiera efectuar: 1-Tarjeta de Credito   2-Efectivo   3-Transferencia Bancaria"));
-// }
-
-// switch (metodoPago) {
-//   case 1:
-//     alert("Haz seleccionado Tarjeta de Credito");
-
-//     let cuotas = Number(prompt("Seleccione cantidad de cuotas: 1, 3, 6, 12"));
-
-//     while (cuotas !== 1 && cuotas !== 3 && cuotas !== 6 && cuotas !== 12 || isNaN (cuotas)) {
-//       cuotas = Number(prompt("Seleccione cantidad de cuotas: 1, 3, 6, 12"));
-//     }
-//     switch (cuotas) {
-//       case 1:
-//         alert(`Monto final es de 6000$`);
-//         break;
-//       case 3:
-//         recargo(0.10, 0.20, 0.30)
-//         alert(` Monton final es de ${resultadoRecargo3}$`);
-//         break;
-//       case 6:
-//         recargo(0.10, 0.20, 0.30);
-//         alert(` Monton final es de ${resultadoRecargo6}$`);
-//         break;
-//       case 12:
-//         recargo(0.10, 0.20, 0.30);
-//         alert(` Monton final es de ${resultadoRecargo12}$`);
-//         break;
-//       default:
-//         alert(`Cantidad de cuotas no valida`);
+//     if (eleccion === "terminar") {
 //         break;
 //     }
-//     break;
-//   case 2:
-//     alert(`Haz seleccionado Efectivo, por lo que tienes un 15% de descuento!`);
-//     alert(`Monton final es de ${6000 - 6000*.15}$`);
-//     break;
-//   case 3:
-//     alert(`Haz seleccionado Transferencia Bancaria, tienes 10% de descuento!`);
-//     alert(`Monton final es de ${6000 - 6000*.10 }$`);
-//     break;
-// }
 
-// function recargo(recargo3, recargo6, recargo12) {
-//   resultadoRecargo3 = recargo3 * 6000 + 6000
-//   resultadoRecargo6 = recargo6 * 6000 + 6000
-//   resultadoRecargo12 = recargo12 * 6000 + 6000
-// }
+//     const idSeleccionado = parseInt(eleccion, 10);
 
+//     const productoSeleccionado = productos.find(producto => producto.id === idSeleccionado);
 
-// clase 6 arrays 
-
-// class Remeras {
-//   constructor (nombre, precio, cantidad){
-//     this.nombre =nombre; 
-//     this.precio = precio;
-//     this.cantidad = cantidad;
-//   }
-//     vender () {
-//       if (this.cantidad > 0) {
-//         this.cantidad--;
-//         console.log (`Vendida una remera ${this.nombre}. Stock restante: ${this.cantidad}`)
-//       }
-     
-//       if (this.cantidad <= 0){
-//         console.log (`sin stock de remera ${this.nombre}`);
-//       }
-//   }
-// }
-// const remera = []; 
-
-// remera.push (new Remeras ("CAMEL", 6000, 5));
-
-// remera.push (new Remeras ("CALAVERA", 5500, 3));
-
-// remera.push (new Remeras ("AGUILA", 5500, 4));
-
-
-// remera[0].vender();
-// remera[1].vender();
-// remera[2].vender();
-
-// remera[0].vender();
-// remera[1].vender();
-// remera[2].vender();
-
-// remera[0].vender();
-// remera[1].vender();
-// remera[2].vender();
-
-// remera[0].vender();
-// remera[1].vender();
-// remera[2].vender();
-
-// remera[0].vender();
-// remera[1].vender();
-// remera[2].vender();
-// console.log (Remeras);
-
-// clase 7_: FUNCIONES DE ALTO ORDEN Y METODOS DE BUSQUEDA Y TRANSFORMACION 
-
- 
-  // const productos = [
-  //   { id: 1, nombre: "CAMEL", precio: 6000 },
-  //   { id: 2, nombre: "CALAVERA", precio: 5500 },
-  //   { id: 3, nombre: "AGUILA", precio: 5500 },
-  // ]
-
- // FOREACH: recorre el arreglo 
-
-  // productos.forEach (item => {
-  //   console.log(item.nombre);
-  //   console.log(item.precio);
-  // })
-
-// FIND: busca el primer elemento que cumpla la condicion 
-//  const encontrado = productos.find ((item) => item.nombre === "CAMEL");
-//  console.log(encontrado);
-
-// let buscarNombre = prompt ("Ingrese el nombre del producto");
-
-// const encontrado = productos.find ((item) => item.nombre === buscarNombre);
-// if (encontrado) {
-//   alert (`
-//   ID: ${encontrado.id}
-//   NOMBRE: ${encontrado.nombre}
-//   PRECIO: ${encontrado.precio}
-//   `)
-// }
-//   else {
-//     alert ("Producto no encontrado");
-//   }
-
-// FILTER: filtra todos los elementos que cumplan con la condicion dada 
-// filtrador de los precios menores al ingresado en prompt
-// let precio = Number (prompt("Ingrese un precio minimo")); 
-
-// let filtrar = productos.filter ( (item) => item.precio > precio); 
-
-// filtrar.forEach ((item) => {
-//   alert ( `
-//   id: ${item.id}
-//   nombre: ${item.nombre}
-//   precio: ${item.precio}
-//   `);
-// });
-
-// MAP: modifica o transforma los elementos del arreglo 
-
-// const recargo = productos.map ((item) => {
-//   return {
-//     id: item.id, 
-//     nombre: item.nombre, 
-//     precio: item.precio + item.precio * 0.10,
-//   };
-// });
-
-// console.log (recargo);
-
-// REDUCE: reduce un arreglo a un solo valor
-// const carrito = [
-//   { id: 1, nombre: "camisa", precio: 1000 },
-//   { id: 2, nombre: "gorra", precio: 390 },
-//   { id: 3, nombre: "pantalon", precio: 200 },
-//   { id: 4, nombre: "media", precio: 150 },
-// ];
-
-// const total = carrito.reduce((acum, item) => acum + item.precio, 0);
-// console.log(total);
-
-// SORT: ordena segun condicion 
-
-// const items = [
-//   { name: "Pikachu", price: 21 },
-//   { name: "Charmander", price: 37 },
-//   { name: "Pidgey", price: 45 },
-//   { name: "Squirtle", price: 60 },
-// ];
-
-// console.log(
-//   items.sort((a, b) => {
-//     if (a.name > b.name) {
-//       return 1;
+//     if (productoSeleccionado) {
+//         carrito.push(productoSeleccionado);
+//         alert(`${productoSeleccionado.nombre} ha sido añadido al carrito.`);
+//     } else {
+//         alert("Producto no encontrado. Por favor, ingrese un ID válido.");
 //     }
-//     if (a.name < b.name) {
-//       return -1;
-//     }
-//     // a es igual a b
-//     return 0;
-//   })
-// );
-// CLASE 7: HIGH ORDER FUNCTIONS: MATH Y DATE
-// GENERADOR NUMEROS ALEATORIOS
-
-// const generadorNumero = () => {
-//   return Math.round (Math.random() * 50 + 50);
 // }
 
-// console.log(generadorNumero ());
+// let total = 0;
 
-// console.log(Math.round (Math.random() * 84 + 18));
-
-// NOMBRES ALEATORIOS
-
-// const nombres = [ "Pepito", "Juan", "Franco", "Salvador", "Agus"]; 
-
-// const nombreAleatorio = () => {
-//   let index = Math.floor (Math.random() * nombres.length);
-//   return nombres [index];
+// for (const producto of carrito) {
+//     total += producto.precio;
 // }
 
-// console.log(nombreAleatorio ());
+// if (carrito.length > 0) {
+//     alert("Carrito de compras:\n" +
+//         carrito.map(producto => `Nombre: ${producto.nombre}, Precio: $${producto.precio}`).join("\n") + "\n" +
+//         `Total: $${total}`);
+// } else {
+//     alert("El carrito de compras está vacío.");
+// }
 
-const productos = [
-  { id: 1, nombre: "camisa", precio: 1000 },
-  { id: 2, nombre: "gorra", precio: 700 },
-  { id: 3, nombre: "media", precio: 300 },
-  { id: 4, nombre: "zapato", precio: 100 },
-];
 
-let precio = Number(prompt("Ingrese el precio mínimo"));
+const remeras = [
+    { id: 1, nombre: "camel", precio: 6000, stock: 2 },
+    { id: 2, nombre: "calavera", precio: 5500, stock: 1 },
+    { id: 3, nombre: "aguila", precio: 5500, stock: 1 },
+    { id: 4, nombre: "champion", precio: 7000, stock: 2 },
+    { id: 5, nombre: "gulf", precio: 5800, stock: 3 },
+    { id: 6, nombre: "hudson", precio: 5000, stock: 2 },
+    { id: 7, nombre: "f1", precio: 6000, stock: 1 },
+    { id: 8, nombre: "dakar", precio: 8000, stock: 2 },
+]
 
-let filtrados = productos.filter((item) => item.precio > precio);
+const buzos = [
+    { id: 9, nombre: "B.camel", precio: 20000, stock: 3 },
+    { id: 10, nombre: "B.calavera", precio: 18000, stock: 2 },
+    { id: 11, nombre: "B.aguila", precio: 18000, stock: 1 },
+    { id: 12, nombre: "B.gulf", precio: 22000, stock: 2 },
+    { id: 13, nombre: "B.champion", precio: 25000, stock: 2 },
+    { id: 14, nombre: "B.hudson", precio: 25000, stock: 1 },
+    { id: 15, nombre: "B.f1", precio: 25000, stock: 3 },
+    { id: 16, nombre: "B.dakar", precio: 25000, stock: 2 },
+]
 
-filtrados.forEach((producto) => {
-  let div = document.createElement("div");
-  div.innerHTML = `
-    <h2 class="rojo">Id: ${producto.id}</h2>
-    <p class="verde">Nombre: ${producto.nombre}</p>
-    <b class="azul">$${producto.precio}</b>
-    <hr />
-  `;
+const recargo = (total,recargo) => total * recargo;
+const descuento = (total, desc) => total - (total * desc);
 
-  document.body.append(div);
-});
+const carrito = [];
+
+alert("Bienvenido a Hudson Custom Garage, somos una marca de ropa para los apasionados por el mundo motor. A continuacion, selecciones un o mas productos para añadir a su carrito:")
+
+let eleccion = prompt(" Actualmente contamos con remeras y buzos. Seleccione una categoria").toUpperCase();
+while (eleccion !== "REMERAS" && eleccion !== "BUZOS") {
+    eleccion = prompt(" Actualmente contamos con remeras y buzos. Seleccione una categoria").toUpperCase();
+}
+
+if (eleccion === "REMERAS") {
+    alert("Haz elegido la categoria remeras!");
+
+    let numeroFiltrar = Number(prompt("Elija un precio maximo que este dispuesto a pagar (remeras desde 5000 a 8000)"));
+    while (numeroFiltrar < 5000) {
+        numeroFiltrar = Number(prompt("El precio minimo es de 5000$, porfavor ingrese un valor mayor o igual"));
+    }
+
+    const filtradoRemeras = remeras.filter(producto => producto.precio <= numeroFiltrar);
+
+    while (true) {
+        const añadirCarrito = prompt("Seleccione el ID de las remeras que desea añadir al CARRITO" + "\n" + filtradoRemeras.map(producto => `ID: ${producto.id}, Nombre: ${producto.nombre}, Precio: $${producto.precio}`).join("\n") + "\n" + "Escriba FIN para finalizar la compra").toUpperCase();
+        if (añadirCarrito === "FIN") {
+            break;
+        }
+
+        const idSeleccionado = parseInt(añadirCarrito);
+
+        const productoSeleccionado = filtradoRemeras.find(producto => producto.id === idSeleccionado);
+
+        if (productoSeleccionado) {
+            if (productoSeleccionado.stock > 0) {
+                carrito.push(productoSeleccionado);
+                productoSeleccionado.stock--;
+                alert(`${productoSeleccionado.nombre} ha sido añadido al carrito.`);
+            } else {
+                alert("El producto está agotado. Por favor, seleccione otro.");
+            }
+        } else {
+            alert("Producto no encontrado. Por favor, ingrese un ID válido.");
+        }
+    }
+    let total = 0;
+
+    for (const producto of carrito) {
+        total += producto.precio;
+    }
+
+    if (carrito.length > 0) {
+        alert("Carrito de compras:\n" +
+            carrito.map(producto => `Nombre: ${producto.nombre}, Precio: $${producto.precio}`).join("\n") + "\n" +
+            `Total: $${total}`);
+    } else {
+        alert("El carrito de compras está vacío.");
+    }
+
+while (true) { 
+        let metodoDePago = Number(prompt("Seleccione el número de método de pago que desea:\n 1 - Tarjeta de Crédito \n 2 - Transferencia"));
+  
+        if (metodoDePago === 1) {
+            alert (`Total con recargo: $${recargo (total, 1.30)}`);
+            break;
+        } else if (metodoDePago === 2) {
+            alert (`Total con descuento: $${descuento (total, 0.10)}`);
+            break;
+        } else {
+            alert("Por favor, ingrese 1 o 2 para seleccionar un método de pago válido.");
+        }
+    }
+
+
+
+} else if (eleccion === "BUZOS") {
+    alert("Haz elegido la categoria buzos!");
+}
+
