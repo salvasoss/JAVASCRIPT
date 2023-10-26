@@ -127,7 +127,5 @@ if (eleccion === "REMERAS") {
     } else {
         alert("El carrito de compras está vacío.");
     }
-
-
 }
 
