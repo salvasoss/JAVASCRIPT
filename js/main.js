@@ -1,50 +1,3 @@
-// Idea para entrega 2 JS: 
-// vender: 10 remeras y 5 buzos. 
-// Crear perfil para iniciar sesion 
-// Buscador de productos 
-// FIltrador de productos: 1ro por categoria (buzos y remeras), 2ndo por precio. 
-// Agregar al carrito 
-// Funcion para eliminar un producto del carrito
-// Elegir metodo de pago: transferencia= descuento, tarjeta= recargo
-// Calculador de costo de envio segun provincia 
-// Funcion para sumar el total de los productos en el carrito teniendo en cuenta envio y metodo de pago
-// Generar factura por la compra
-
-// while (true) {
-//     const eleccion = prompt("Elija un producto por su ID:\n" +
-//         productos.map(producto => `ID: ${producto.id}, Nombre: ${producto.nombre}, Precio: $${producto.precio}`).join("\n") + "\n" +
-//         "Ingrese 'terminar' para finalizar la compra");
-
-//     if (eleccion === "terminar") {
-//         break;
-//     }
-
-//     const idSeleccionado = parseInt(eleccion, 10);
-
-//     const productoSeleccionado = productos.find(producto => producto.id === idSeleccionado);
-
-//     if (productoSeleccionado) {
-//         carrito.push(productoSeleccionado);
-//         alert(`${productoSeleccionado.nombre} ha sido añadido al carrito.`);
-//     } else {
-//         alert("Producto no encontrado. Por favor, ingrese un ID válido.");
-//     }
-// }
-
-// let total = 0;
-
-// for (const producto of carrito) {
-//     total += producto.precio;
-// }
-
-// if (carrito.length > 0) {
-//     alert("Carrito de compras:\n" +
-//         carrito.map(producto => `Nombre: ${producto.nombre}, Precio: $${producto.precio}`).join("\n") + "\n" +
-//         `Total: $${total}`);
-// } else {
-//     alert("El carrito de compras está vacío.");
-// }
-
 
 const remeras = [
     { id: 1, nombre: "camel", precio: 6000, stock: 2 },
@@ -58,18 +11,19 @@ const remeras = [
 ]
 
 const buzos = [
-    { id: 9, nombre: "B.camel", precio: 20000, stock: 3 },
-    { id: 10, nombre: "B.calavera", precio: 18000, stock: 2 },
-    { id: 11, nombre: "B.aguila", precio: 18000, stock: 1 },
-    { id: 12, nombre: "B.gulf", precio: 22000, stock: 2 },
-    { id: 13, nombre: "B.champion", precio: 25000, stock: 2 },
-    { id: 14, nombre: "B.hudson", precio: 25000, stock: 1 },
-    { id: 15, nombre: "B.f1", precio: 25000, stock: 3 },
-    { id: 16, nombre: "B.dakar", precio: 25000, stock: 2 },
+    { id: 9, nombre: "camel", precio: 20000, stock: 3 },
+    { id: 10, nombre: "calavera", precio: 18000, stock: 2 },
+    { id: 11, nombre: "aguila", precio: 18000, stock: 1 },
+    { id: 12, nombre: "gulf", precio: 22000, stock: 2 },
+    { id: 13, nombre: "champion", precio: 25000, stock: 2 },
+    { id: 14, nombre: "hudson", precio: 25000, stock: 1 },
+    { id: 15, nombre: "f1", precio: 25000, stock: 3 },
+    { id: 16, nombre: "dakar", precio: 25000, stock: 2 },
 ]
 
-const recargo = (total,recargo) => total * recargo;
+const recargo = (total, recargo) => total * recargo;
 const descuento = (total, desc) => total - (total * desc);
+
 
 const carrito = [];
 
@@ -92,6 +46,7 @@ if (eleccion === "REMERAS") {
 
     while (true) {
         const añadirCarrito = prompt("Seleccione el ID de las remeras que desea añadir al CARRITO" + "\n" + filtradoRemeras.map(producto => `ID: ${producto.id}, Nombre: ${producto.nombre}, Precio: $${producto.precio}`).join("\n") + "\n" + "Escriba FIN para finalizar la compra").toUpperCase();
+
         if (añadirCarrito === "FIN") {
             break;
         }
@@ -112,11 +67,8 @@ if (eleccion === "REMERAS") {
             alert("Producto no encontrado. Por favor, ingrese un ID válido.");
         }
     }
-    let total = 0;
 
-    for (const producto of carrito) {
-        total += producto.precio;
-    }
+    const total = carrito.reduce((acum, producto) => acum + producto.precio, 0);
 
     if (carrito.length > 0) {
         alert("Carrito de compras:\n" +
@@ -126,14 +78,14 @@ if (eleccion === "REMERAS") {
         alert("El carrito de compras está vacío.");
     }
 
-while (true) { 
+    while (true) {
         let metodoDePago = Number(prompt("Seleccione el número de método de pago que desea:\n 1 - Tarjeta de Crédito \n 2 - Transferencia"));
-  
+
         if (metodoDePago === 1) {
-            alert (`Total con recargo: $${recargo (total, 1.30)}`);
+            alert(`Total con recargo: $${recargo(total, 1.30)}`);
             break;
         } else if (metodoDePago === 2) {
-            alert (`Total con descuento: $${descuento (total, 0.10)}`);
+            alert(`Total con descuento: $${descuento(total, 0.10)}`);
             break;
         } else {
             alert("Por favor, ingrese 1 o 2 para seleccionar un método de pago válido.");
@@ -144,5 +96,38 @@ while (true) {
 
 } else if (eleccion === "BUZOS") {
     alert("Haz elegido la categoria buzos!");
+    alert(`Catalogo:\n${buzos.map(producto => `Nombre: ${producto.nombre}, Precio: $${producto.precio}`).join("\n")}`);
+
+    while (true) {
+
+        const añadirBuzo = prompt(`Ingrese el buzo/s que desea \n Escriba FIN para terminar la seleccion`).toLowerCase();
+
+        if (añadirBuzo === "fin") {
+            break;
+        }
+
+        const buzoSeleccionado = buzos.find(producto => producto.nombre === añadirBuzo);
+
+        if (buzoSeleccionado) {
+            if (buzoSeleccionado.stock > 0) {
+                carrito.push(buzoSeleccionado);
+                buzoSeleccionado.stock--;
+                alert(`${buzoSeleccionado.nombre} ha sido añadido al carrito.`);
+            } else {
+                alert("El producto está agotado. Por favor, seleccione otro.");
+            }
+        }
+    }
+
+    const total = carrito.reduce((acum, producto) => acum + producto.precio, 0);
+
+    if (carrito.length > 0) {
+        alert("Carrito de compras:\n" +
+            carrito.map(producto => `Nombre: ${producto.nombre}\n Precio: $${producto.precio}\n`).join("\n") + "\n" + `Total: $${total}`);
+    } else {
+        alert("El carrito de compras está vacío.");
+    }
+
+
 }
 
